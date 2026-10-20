@@ -42,7 +42,7 @@ def tesseract_words(
         import pytesseract
     except ImportError as exc:  # pragma: no cover - depends on the install
         raise OCREngineError(
-            "pytesseract is not installed; run 'pip install smart-form-parser[ocr]'"
+            "pytesseract is missing; reinstall it with 'pip install pytesseract'"
         ) from exc
     try:
         data = pytesseract.image_to_data(
