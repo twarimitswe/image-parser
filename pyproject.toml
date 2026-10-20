@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=77.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "smart-form-parser"
+version = "0.1.0"
+description = "Read printed forms from an image and return structured JSON"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Twarimitswe Aaron", email = "aarontwarimitswe@gmail.com" }]
+keywords = ["ocr", "forms", "data-extraction", "logistics", "document-parsing"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Image Recognition",
+    "Topic :: Text Processing",
+    "Typing :: Typed",
+]
+dependencies = ["pillow>=9.0.0", "pytesseract>=0.3.10"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "build>=1.0", "twine>=4.0"]
+
+[project.scripts]
+smart-form-parser = "smart_form_parser.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/twarimitswe/image-parser"
+Source = "https://github.com/twarimitswe/image-parser"
+Issues = "https://github.com/twarimitswe/image-parser/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+smart_form_parser = ["py.typed"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "tests"]
+testpaths = ["tests"]
